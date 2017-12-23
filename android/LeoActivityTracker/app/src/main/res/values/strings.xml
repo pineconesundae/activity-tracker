@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">Leo Activity Tracker</string>
+    <string name="act_feed">Leo Activity Tracker - Feeding</string>
+    <string name="act_nap">Leo Activity Tracker - Nap</string>
+    <string name="act_diaper">Leo Activity Tracker - Diaper</string>
+    <string name="act_other">Leo Activity Tracker - Other</string>
+
+    <string name="btn_next">Next</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_browse">...</string>
+
+    <string name="lbl_starttime">Start time</string>
+    <string name="lbl_endtime">End time</string>
+    <string name="lbl_notes">Notes</string>
+
+    <string name="btn_feed">Feeding</string>
+    <string name="btn_nap">Nap</string>
+    <string name="btn_diaper">Diaper Change</string>
+    <string name="btn_other">Other</string>
+
+    <string name="rad_breast">Breastfeeding</string>
+    <string name="rad_bottle">Bottle</string>
+    <string name="lbl_breast">How many minutes?</string>
+    <string name="lbl_bottle">How many ounces?</string>
+
+    <string name="chk_pee">Pee</string>
+    <string name="chk_poop">Poop</string>
+    <string name="lbl_diapertime">Time of diaper change</string>
+
+    <string name="lbl_summary">Summary</string>
+    <string name="lbl_activitytype">Activity Type</string>
+    <string name="lbl_activitysubtype">Activity Subtype</string>
+    <string name="lbl_activitydetails">Activity Details</string>
+    <string name="lbl_activitystarttime">Activity Start Time</string>
+    <string name="lbl_activityendtime">Activity End Time</string>
+
+    <string name="ACTIVITY_TYPE">com.ruslander.leo.leoactivitytracker.activitytype</string>
+    <string name="ACTIVITY_SUBTYPE">com.ruslander.leo.leoactivitytracker.activitysubtype</string>
+    <string name="ACTIVITY_DETAILS">com.ruslander.leo.leoactivitytracker.activitydetails</string>
+    <string name="ACTIVITY_STARTTIME">com.ruslander.leo.leoactivitytracker.activitystarttime</string>
+    <string name="ACTIVITY_ENDTIME">com.ruslander.leo.leoactivitytracker.activityendtime</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+</resources>
