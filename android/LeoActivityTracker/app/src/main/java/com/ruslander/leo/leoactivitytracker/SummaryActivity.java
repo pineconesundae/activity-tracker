@@ -15,6 +15,8 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.ruslander.leo.leoactivitytracker.utils.User;
+import com.ruslander.leo.leoactivitytracker.utils.UserCookie;
 
 import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
@@ -29,6 +31,7 @@ public class SummaryActivity extends AppCompatActivity {
     private String details;
     private String start;
     private String end;
+    private String logged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,9 @@ public class SummaryActivity extends AppCompatActivity {
         details = intent.getStringExtra(getString(R.string.ACTIVITY_DETAILS));
         start = intent.getStringExtra(getString(R.string.ACTIVITY_STARTTIME));
         end = intent.getStringExtra(getString(R.string.ACTIVITY_ENDTIME));
+
+        User user = UserCookie.readCookie(this);
+        logged = user.getDisplayName();
 
         // Set the values to the labels on the summary activity
         ((TextView)findViewById(R.id.lbl_type)).setText(type);
@@ -58,13 +64,13 @@ public class SummaryActivity extends AppCompatActivity {
      */
     public void submitClick(View view) {
         // TODO: Test what happens if this URL isn't valid
-        String url = "http://192.168.1.145/leo/activity/put.php?date={0}&type={1}&subtype={2}&details={3}&start={4}&end={5}&logged={6}";
+        String url = "http://192.168.1.145/leo/activity/put.php?object=activity&date={0}&type={1}&subtype={2}&details={3}&start={4}&end={5}&logged={6}";
 
         Calendar cal = Calendar.getInstance();
         SimpleDateFormat format = new SimpleDateFormat("yy-MM-dd", Locale.US);
         String date = format.format(cal.getTime());
 
-        Object[] args = {date, type, subtype, details, start, end, "Test"};
+        Object[] args = {date, type, subtype, details, start, end, logged};
         MessageFormat msgFormat = new MessageFormat(url);
         String formattedUrl = msgFormat.format(args);
 

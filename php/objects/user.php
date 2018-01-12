@@ -17,34 +17,34 @@ class User {
 		$this->conn = $db;
 	}
 	
-	function getUser() {
+	function getUserById($id) {
 		$query = "SELECT USER_ID as id, EMAIL as email, PASSWORD as password, SALT as salt,
 						 FIRST_NAME as firstName, LAST_NAME as lastName, COMPANY_ID as companyId, 
 						 CREATED_ON as createdOn, UPDATED_ON as updatedOn
 				  FROM $this->tableName 
-				  WHERE EMAIL = $this->email AND PASSWORD = $this->password";
+				  WHERE USER_ID = $id";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		
 		return $stmt;
 	}
 	
-	function getSalt() {
-		$query = "SELECT SALT
-				  FROM $this->tableName
-				  WHERE EMAIL = $this->email";
-				  
+	function getUserByEmail($email) {
+		$query = "SELECT USER_ID as id, EMAIL as email, PASSWORD as password, SALT as salt,
+						 FIRST_NAME as firstName, LAST_NAME as lastName, COMPANY_ID as companyId, 
+						 CREATED_ON as createdOn, UPDATED_ON as updatedOn
+				  FROM $this->tableName 
+				  WHERE EMAIL = '$email'";
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		
-		$result = $stmt->fetch(PDF::FETCH_ASSOC);
-		return $result['salt'];
+		return $stmt;
 	}
 	
 	function putUser() {
 		$query = "INSERT INTO $this->tableName (EMAIL, PASSWORD, SALT, FIRST_NAME, LAST_NAME, COMPANY_ID) 
-				  VALUES('$this->email','$this->password','$this->salt','$this->firstName','$this->lastName','$this->companyId')";
-		
+				  VALUES('$this->email','$this->password',$this->salt,'$this->firstName','$this->lastName','$this->companyId')";
+		echo $query;
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		
@@ -54,9 +54,14 @@ class User {
 	function updateUser() {
 		$query = "UPDATE $this->tableName
 				  SET EMAIL = '$this->email', PASSWORD = '$this->password', SALT = $this->salt,
-					  FIRST_NAME = '$this->firstName', LAST_NAME = '$this->lastName', COMPANY_ID = '$this->companyId'
+					  FIRST_NAME = '$this->firstName', LAST_NAME = '$this->lastName', COMPANY_ID = '$this->companyId',
 					  UPDATED_ON = CURRENT_TIMESTAMP
-				  WHERE ID = $this->id"
+				  WHERE USER_ID = $this->id";
+				  
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		
+		return $stmt;
 	}
 }
 ?>

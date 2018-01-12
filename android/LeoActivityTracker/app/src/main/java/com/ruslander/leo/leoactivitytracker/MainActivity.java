@@ -7,7 +7,7 @@ import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
-    // TODO: Have some sort of login and baby selection screen
+    // TODO: Make a logout action here that sets the cookie to be dirty and returns to the LoginActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
